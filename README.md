@@ -230,19 +230,23 @@ Large intermediate files and raw sequencing data were excluded because of storag
 - **DESeq2** → differential expression analysis
 - **ResFinder** → antimicrobial resistance gene identification
 - **BLAST** → sequence similarity analysis
-
+- 
 ## Scripts
 
-- `code/fastqc.sh`
-- `code/fastqc_trimmed.sh`
-- `code/bwa_mapping.sh`
-- `code/htseq_count.sh`
-- `analyses/01_assembly/canu/canu.sh`
-- `analyses/02_quast/quast.sh`
-- `analyses/03_busco/busco.sh`
-- `analyses/04_mummer/mummer.sh`
-- `analyses/05_prokka/prokka.sh`
-- `analyses/08_de/deseq2.sh`
+- code/fastqc.sh
+- code/fastqc_rna.sh
+- code/fastqc_trimmed.sh
+- code/trimmomatic.sh
+- code/bwa_index.sh
+- code/bwa_mapping.sh
+- code/htseq_count.sh
+- code/canu.sh
+- code/quast.sh
+- code/busco.sh
+- code/mummer.sh
+- code/prokka.sh
+- code/deseq2.sh
+
 
 ## Conclusion
 
