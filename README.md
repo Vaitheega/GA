@@ -58,7 +58,7 @@ Data formats used in the analyses included:
 ### Purpose
 The raw sequencing reads were evaluated for sequence quality, GC content, adapter contamination, and overall read quality.
 
-Low-quality bases and adapter sequences were removed to improve the accuracy of downstream analyses.
+Low-quality bases and adapter sequences were removed from Illumina RNA-seq reads using Trimmomatic to improve downstream analysis quality.
 
 ### Input
 - Raw sequencing reads (`.fastq.gz`)
