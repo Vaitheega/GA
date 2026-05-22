@@ -6,6 +6,13 @@ This project was completed as part of the Genome Analysis course at Uppsala Univ
 
 The project investigates the genome and transcriptome of *Enterococcus faecium* using PacBio long-read sequencing data together with RNA-seq data.
 
+## Reference Paper
+
+Zhang X, de Maat V, Guzmán Prieto AM, Prajsnar TK, Bayjanov JR, de Been M, et al.
+*RNA-seq and Tn-seq reveal fitness determinants of vancomycin-resistant Enterococcus faecium during growth in human serum.*
+BMC Genomics. 2017;18:893.
+https://doi.org/10.1186/s12864-017-4299-9
+
 ## The workflow includes:
 - Quality control and trimming
 - Genome assembly
@@ -247,6 +254,168 @@ Large intermediate files and raw sequencing data were excluded because of storag
 - code/prokka.sh
 - code/deseq2.sh
 
+## Project Structure
+
+genome-analysis-project/
+├── analyses
+│   ├── Annotation
+│   │   └── prokka
+│   │       └── prokka_output
+│   │           ├── efaecium.gff
+│   │           └── efaecium_clean.gff
+│   │
+│   ├── Assembly
+│   │   └── canu
+│   │       └── assembly_output
+│   │           ├── e_faecium.contigs.fasta
+│   │           └── e_faecium.report
+│   │
+│   ├── Assembly_Evaluation
+│   │   ├── busco
+│   │   │   └── busco_output
+│   │   │       ├── run_bacteria_odb10
+│   │   │       │   └── short_summary.txt
+│   │   │       └── short_summary.specific.bacteria_odb10.busco_output.txt
+│   │   │
+│   │   ├── mummer
+│   │   │   └── plot.png
+│   │   │
+│   │   └── quast
+│   │       └── quast_output
+│   │           ├── report.html
+│   │           └── report.pdf
+│   │
+│   ├── Expression_Analysis
+│   │   └── de
+│   │       ├── DESeq2_results.csv
+│   │       ├── PCA_plot.png
+│   │       ├── deseq2_analysis.R
+│   │       ├── log2_counts_hist.png
+│   │       ├── raw_counts_hist.png
+│   │       └── volcano_plot.png
+│   │
+│   ├── Plasmid_Analysis
+│   │   └── blast
+│   │       ├── 0GWKYBAY014-Alignment-HitTable.csv
+│   │       └── tig00000005.fasta
+│   │
+│   ├── Resistance_Analysis
+│   │   └── resfinder
+│   │       ├── ResFinder_results.txt
+│   │       ├── ResFinder_results_tab.txt
+│   │       ├── ResFinder_results_table.txt
+│   │       ├── output.json
+│   │       └── pheno_table.txt
+│   │
+│   ├── Mapping
+│   │   ├── counts
+│   │   └── mapping
+│   │
+│   ├── Fastqc
+│   │
+│   └── QC
+│       ├── fastqc_raw
+│       │   ├── pacbio
+│       │   └── rnaseq
+│       │
+│       └── fastqc_trimmed
+│
+├── code
+│   ├── busco.sh
+│   ├── bwa_index.sh
+│   ├── bwa_mapping.sh
+│   ├── canu.sh
+│   ├── deseq2.sh
+│   ├── fastqc.sh
+│   ├── fastqc_rna.sh
+│   ├── fastqc_trimmed.sh
+│   ├── htseq_count.sh
+│   ├── mummer.sh
+│   ├── prokka.sh
+│   ├── quast.sh
+│   └── trimmomatic.sh
+│
+├── data
+│   ├── metadata
+│   ├── raw_data
+│   ├── rna_raw
+│   │   ├── BH
+│   │   └── Serum
+│   │
+│   ├── trimmed_data
+│   │   ├── BH
+│   │   └── Serum
+│   │
+│   └── reference.fasta
+│
+├── README.md
+└── test.txt
+
+```markdown
+
+
+## Biological Interpretation
+
+The analyses performed in this project provide important insights into how vancomycin-resistant *Enterococcus faecium* adapts to nutrient-limited environments such as human serum.
+
+RNA-seq analysis showed that many genes changed expression levels between growth in rich medium (BHI) and growth in serum conditions. These transcriptional changes indicate that *E. faecium* undergoes extensive metabolic adaptation in response to environmental stress and nutrient limitation.
+
+Several genes showed strong differential expression patterns together with statistically significant adjusted p-values, indicating clear transcriptional differences between experimental conditions.
+
+An important observation from the analysis was the likely involvement of genes associated with:
+
+- metabolic adaptation
+- nutrient acquisition
+- stress response pathways
+- survival under nutrient-limited conditions
+
+These findings are biologically consistent with the reference study by Zhang et al. (2017), where metabolic adaptation and nutrient acquisition pathways were identified as important factors for bacterial fitness during bloodstream growth.
+
+The observed expression patterns suggest that human serum represents a stressful and nutrient-limited environment where bacteria require coordinated physiological adaptation for survival.
+
+Assembly evaluation further demonstrated that the assembled genome was highly complete, with BUSCO analysis identifying approximately 98% complete conserved bacterial genes. This indicates that the genome assembly was suitable for downstream annotation and transcriptomic analyses.
+
+Genome annotation identified approximately 3093 coding sequences together with multiple RNA genes, providing biologically meaningful genomic information for functional analysis.
+
+Resistance analysis further demonstrated the presence of clinically relevant antimicrobial resistance determinants, supporting the characterization of the isolate as a multidrug-resistant VRE strain.
+
+Together, these findings demonstrate that successful bloodstream survival of *E. faecium* depends on coordinated metabolic adaptation, stress response mechanisms, nutrient acquisition, and antimicrobial resistance.
+
+## Discussion
+
+This project followed the main workflow of the reference study and provided practical experience with bacterial genome assembly, annotation, and RNA-seq analysis.
+
+Using PacBio long-read sequencing data, a high-quality genome assembly of *Enterococcus faecium* was generated. The assembly showed strong completeness and quality according to QUAST and BUSCO results, indicating that the genome assembly was suitable for downstream analyses such as annotation, RNA-seq mapping, and resistance analysis.
+
+Genome annotation identified thousands of predicted coding sequences together with multiple RNA genes involved in important biological processes such as metabolism, transport, stress response, and antimicrobial resistance. These analyses provided biologically meaningful information about the genomic features present in the assembled genome.
+
+RNA-seq differential expression analysis demonstrated that *E. faecium* changes its gene expression patterns when growing in human serum compared with rich medium conditions. This suggests that the bacterium undergoes extensive metabolic and physiological adaptation in response to nutrient limitation and environmental stress.
+
+Several genes showed strong differential expression patterns together with statistically significant adjusted p-values, indicating clear transcriptional differences between experimental conditions.
+
+The observed expression patterns were generally consistent with the biological trends reported in the reference study. In particular, genes associated with metabolic adaptation, nutrient acquisition, and stress response pathways appeared to play important roles during serum growth conditions.
+
+Resistance analysis also identified several antimicrobial resistance-associated genes, which is consistent with the multidrug-resistant characteristics of vancomycin-resistant *Enterococcus faecium* strains.
+
+Overall, this project demonstrated how genome assembly, annotation, transcriptomics, and resistance analysis can be integrated to investigate bacterial adaptation, pathogenicity, and clinically relevant resistance mechanisms. The project also provided practical experience with bioinformatics workflows and high-performance computing analyses performed on UPPMAX.
+
+## Discussion
+
+This project followed the main workflow of the reference study and provided practical experience with bacterial genome assembly, annotation, and RNA-seq analysis.
+
+Using PacBio long-read sequencing data, a high-quality genome assembly of *Enterococcus faecium* was generated. The assembly showed strong completeness and quality according to QUAST and BUSCO results, indicating that the genome assembly was suitable for downstream analyses such as annotation, RNA-seq mapping, and resistance analysis.
+
+Genome annotation identified thousands of predicted coding sequences together with multiple RNA genes involved in important biological processes such as metabolism, transport, stress response, and antimicrobial resistance. These analyses provided biologically meaningful information about the genomic features present in the assembled genome.
+
+RNA-seq differential expression analysis demonstrated that *E. faecium* changes its gene expression patterns when growing in human serum compared with rich medium conditions. This suggests that the bacterium undergoes extensive metabolic and physiological adaptation in response to nutrient limitation and environmental stress.
+
+Several genes showed strong differential expression patterns together with statistically significant adjusted p-values, indicating clear transcriptional differences between experimental conditions.
+
+The observed expression patterns were generally consistent with the biological trends reported in the reference study. In particular, genes associated with metabolic adaptation, nutrient acquisition, and stress response pathways appeared to play important roles during serum growth conditions.
+
+Resistance analysis also identified several antimicrobial resistance-associated genes, which is consistent with the multidrug-resistant characteristics of vancomycin-resistant *Enterococcus faecium* strains.
+
+Overall, this project demonstrated how genome assembly, annotation, transcriptomics, and resistance analysis can be integrated to investigate bacterial adaptation, pathogenicity, and clinically relevant resistance mechanisms. The project also provided practical experience with bioinformatics workflows and high-performance computing analyses performed on UPPMAX.
 
 ## Conclusion
 
