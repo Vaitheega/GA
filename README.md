@@ -207,7 +207,6 @@ Genome annotation identified important genomic features and predicted coding reg
 ### Resistance Analysis
 Multiple resistance-associated genes were identified, including genes linked to vancomycin resistance.
 
----
 
 ## Repository Contents
 
@@ -220,6 +219,26 @@ The repository contains:
 - differential expression analysis outputs
 
 Large intermediate files and raw sequencing data were excluded because of storage limitations.
+
+## Key Visualizations
+
+### PCA Plot
+
+The PCA plot shows clear clustering between serum and BHI samples, indicating strong transcriptional differences between growth conditions.
+
+![PCA Plot](analyses/Expression_Analysis/de/PCA_plot.png)
+
+### Volcano Plot
+
+The volcano plot highlights significantly upregulated and downregulated genes between serum and BHI conditions.
+
+![Volcano Plot](analyses/Expression_Analysis/de/volcano_plot.png)
+
+### MUMmer Plot
+
+The MUMmer synteny plot demonstrates structural similarity between the assembled genome and the reference genome.
+
+![MUMmer Plot](analyses/Assembly_Evaluation/mummer/plot.png)
 
 ## Tools Used
 
@@ -301,24 +320,6 @@ Resistance analysis also identified several antimicrobial resistance-associated 
 
 Overall, this project demonstrated how genome assembly, annotation, transcriptomics, and resistance analysis can be integrated to investigate bacterial adaptation, pathogenicity, and clinically relevant resistance mechanisms. The project also provided practical experience with bioinformatics workflows and high-performance computing analyses performed on UPPMAX.
 
-## Discussion
-
-This project followed the main workflow of the reference study and provided practical experience with bacterial genome assembly, annotation, and RNA-seq analysis.
-
-Using PacBio long-read sequencing data, a high-quality genome assembly of *Enterococcus faecium* was generated. The assembly showed strong completeness and quality according to QUAST and BUSCO results, indicating that the genome assembly was suitable for downstream analyses such as annotation, RNA-seq mapping, and resistance analysis.
-
-Genome annotation identified thousands of predicted coding sequences together with multiple RNA genes involved in important biological processes such as metabolism, transport, stress response, and antimicrobial resistance. These analyses provided biologically meaningful information about the genomic features present in the assembled genome.
-
-RNA-seq differential expression analysis demonstrated that *E. faecium* changes its gene expression patterns when growing in human serum compared with rich medium conditions. This suggests that the bacterium undergoes extensive metabolic and physiological adaptation in response to nutrient limitation and environmental stress.
-
-Several genes showed strong differential expression patterns together with statistically significant adjusted p-values, indicating clear transcriptional differences between experimental conditions.
-
-The observed expression patterns were generally consistent with the biological trends reported in the reference study. In particular, genes associated with metabolic adaptation, nutrient acquisition, and stress response pathways appeared to play important roles during serum growth conditions.
-
-Resistance analysis also identified several antimicrobial resistance-associated genes, which is consistent with the multidrug-resistant characteristics of vancomycin-resistant *Enterococcus faecium* strains.
-
-Overall, this project demonstrated how genome assembly, annotation, transcriptomics, and resistance analysis can be integrated to investigate bacterial adaptation, pathogenicity, and clinically relevant resistance mechanisms. The project also provided practical experience with bioinformatics workflows and high-performance computing analyses performed on UPPMAX.
-
 ## Conclusion
 
 The genome of *Enterococcus faecium* was successfully assembled and analysed using long-read sequencing and RNA-seq data.
@@ -335,10 +336,6 @@ RNA-seq analysis enabled investigation of gene expression changes under serum co
 BLAST analysis further confirmed sequence similarity between query sequences and reference database entries.
 
 Overall, this project demonstrates a complete bacterial genome analysis workflow using modern bioinformatics tools and high-performance computing resources on UPPMAX.
-
-
-
-
 
 
 
