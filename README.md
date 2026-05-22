@@ -273,8 +273,6 @@ The MUMmer synteny plot demonstrates structural similarity between the assembled
 - code/prokka.sh
 - code/deseq2.sh
 
-
-
 ## Biological Interpretation
 
 The analyses performed in this project provide important insights into how vancomycin-resistant *Enterococcus faecium* adapts to nutrient-limited environments such as human serum.
